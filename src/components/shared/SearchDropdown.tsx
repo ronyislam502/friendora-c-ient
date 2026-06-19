@@ -27,26 +27,26 @@ const SearchDropdown = () => {
 
     return (
         <div className="flex items-center" ref={dropdownRef}>
-            {/* Default State - Always rendered to maintain layout space */}
+            {/* Default State - Always rendered to maintain layout space but hidden when open */}
             <>
-                <div className="cursor-pointer">
+                <div className={`cursor-pointer ${isSearchOpen ? 'opacity-0 pointer-events-none' : ''}`}>
                     <Image src="https://i.postimg.cc/bwZwvFBL/Chat-GPT-Image-Jun-19-2026-10-37-51-PM.png" alt="Website Logo" width={80} height={80} className="h-20 w-20 object-cover rounded-full" />
                 </div>
                 <div
-                    className="ml-2 hidden md:flex items-center bg-[#3A3B3C] rounded-full h-10 px-3 w-[240px] cursor-text"
+                    className={`ml-2 hidden md:flex items-center bg-[#3A3B3C] rounded-full h-10 px-3 w-[240px] cursor-text transition-opacity ${isSearchOpen ? 'opacity-0 pointer-events-none' : ''}`}
                     onClick={() => setIsSearchOpen(true)}
                 >
                     <Search className="text-[#B0B3B8] h-[18px] w-[18px]" strokeWidth={2.5} />
                     <input
                         type="text"
-                        placeholder="Search Facebook"
+                        placeholder="Search Friendora"
                         className="bg-transparent border-none outline-none text-[#E4E6EB] ml-2 w-full placeholder-[#B0B3B8] text-[15px] pointer-events-none"
                         readOnly
                     />
                 </div>
                 {/* Mobile Search Icon */}
                 <div
-                    className="md:hidden ml-2 h-10 w-10 bg-[#3A3B3C] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#4E4F50] transition-colors"
+                    className={`md:hidden ml-2 h-10 w-10 bg-[#3A3B3C] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#4E4F50] transition-colors ${isSearchOpen ? 'opacity-0 pointer-events-none' : ''}`}
                     onClick={() => setIsSearchOpen(true)}
                 >
                     <Search className="text-[#E4E6EB] h-[20px] w-[20px]" strokeWidth={2.5} />

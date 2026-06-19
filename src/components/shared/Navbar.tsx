@@ -1,8 +1,14 @@
+"use client";
 import { Home, MonitorPlay, Store, Users, Gamepad2, Grid3X3, MessageCircle, Bell } from 'lucide-react';
 import SearchDropdown from './SearchDropdown';
 import ProfileDropdown from './ProfileDropdown';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Navbar = () => {
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+
     return (
         <nav className="fixed top-0 z-50 w-full h-14 bg-[#242526] border-b border-[#3E4042] flex items-center justify-between px-4">
 
@@ -13,13 +19,13 @@ const Navbar = () => {
             <div className="hidden md:flex flex-1 justify-center max-w-[680px] h-full ml-10">
                 <div className="flex w-full justify-between">
 
-                    {/* Active Tab */}
-                    <div className="flex-1 flex items-center justify-center relative cursor-pointer group px-1">
-                        <div className="w-full h-12 flex items-center justify-center rounded-lg mt-1">
-                            <Home className="h-7 w-7 text-[#0866FF]" fill="currentColor" strokeWidth={0} />
+                    {/* Home Tab */}
+                    <Link href="/" className="flex-1 flex items-center justify-center relative cursor-pointer group px-1">
+                        <div className={`w-full h-12 flex items-center justify-center rounded-lg mt-1 transition-colors ${!isHome && 'hover:bg-[#3A3B3C]'}`}>
+                            <Home className={isHome ? "h-7 w-7 text-[#0866FF]" : "h-[26px] w-[26px] text-[#B0B3B8]"} fill={isHome ? "currentColor" : "none"} strokeWidth={isHome ? 0 : 2} />
                         </div>
-                        <div className="absolute bottom-0 w-full h-[3px] bg-[#0866FF]"></div>
-                    </div>
+                        {isHome && <div className="absolute bottom-0 w-full h-[3px] bg-[#0866FF]"></div>}
+                    </Link>
 
                     {/* Inactive Tabs */}
                     <div className="flex-1 flex items-center justify-center cursor-pointer group px-1">
