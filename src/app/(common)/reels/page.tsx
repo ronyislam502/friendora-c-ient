@@ -11,7 +11,7 @@ const REELS_DATA = Array.from({ length: 20 }).map((_, i) => ({
         isVerified: i === 0,
     },
     audio: i === 0 ? "BALA QUEEN - Original audio" : `Original audio - User ${i + 1}`,
-    caption: i === 0 ? "ERTUGRUL BEY 🤩 NEEDS REPOST 😍" : `This is an amazing reel #${i+1}! Wait for it... 😂 #viral #trending`,
+    caption: i === 0 ? "ERTUGRUL BEY 🤩 NEEDS REPOST 😍" : `This is an amazing reel #${i + 1}! Wait for it... 😂 #viral #trending`,
     likes: i === 0 ? "5.5K" : `${Math.floor(Math.random() * 100)}K`,
     comments: i === 0 ? "1.2K" : `${Math.floor(Math.random() * 10)}K`,
     shares: i === 0 ? 23 : Math.floor(Math.random() * 500),
@@ -51,7 +51,7 @@ export default function ReelsPage() {
 
     const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
         if (isScrolling) return;
-        
+
         setIsScrolling(true);
         setTimeout(() => setIsScrolling(false), 800); // Throttling to prevent multiple skips
 
@@ -63,20 +63,20 @@ export default function ReelsPage() {
     };
 
     return (
-        <div 
-            className="w-full h-[calc(100vh-56px)] bg-[#18191A] flex justify-center items-center relative overflow-hidden"
+        <div
+            className="w-full mt-12 h-[calc(100vh-56px)] bg-[#18191A] flex justify-center items-center relative overflow-hidden"
             onWheel={handleWheel}
         >
             {/* Right Side Navigation Arrows (Desktop) */}
             <div className="absolute right-4 md:right-12 lg:right-24 flex flex-col gap-4 z-10 hidden sm:flex">
-                <button 
+                <button
                     onClick={handlePrev}
                     className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#242526] hover:bg-[#3A3B3C] border border-[#3E4042] transition-colors ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={currentIndex === 0}
                 >
                     <ChevronUp className="w-8 h-8 text-[#E4E6EB]" />
                 </button>
-                <button 
+                <button
                     onClick={handleNext}
                     className={`w-12 h-12 rounded-full flex items-center justify-center bg-[#242526] hover:bg-[#3A3B3C] border border-[#3E4042] transition-colors ${currentIndex === REELS_DATA.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={currentIndex === REELS_DATA.length - 1}
@@ -87,18 +87,18 @@ export default function ReelsPage() {
 
             {/* Reel Viewer Container */}
             <div className="w-full h-full sm:h-[95%] sm:max-w-[450px] relative overflow-hidden sm:rounded-[12px] shadow-[0_0_15px_rgba(0,0,0,0.4)] bg-black">
-                
+
                 {/* Scrollable track for smooth sliding between reels */}
-                <div 
+                <div
                     ref={containerRef}
                     className="w-full h-full transition-transform duration-500 ease-in-out flex flex-col"
                     style={{ transform: `translateY(-${currentIndex * 100}%)` }}
                 >
                     {REELS_DATA.map((reel, index) => (
                         <div key={reel.id} className="w-full h-full flex-shrink-0 relative group">
-                            
+
                             {/* Video Player */}
-                            <video 
+                            <video
                                 ref={el => { videoRefs.current[index] = el; }}
                                 src={reel.videoUrl}
                                 className="w-full h-full object-cover"
@@ -112,7 +112,7 @@ export default function ReelsPage() {
                             <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
 
                             {/* Top-Left Volume Toggle */}
-                            <button 
+                            <button
                                 onClick={(e) => { e.stopPropagation(); setIsMuted(!isMuted); }}
                                 className="absolute top-4 left-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition z-10"
                             >

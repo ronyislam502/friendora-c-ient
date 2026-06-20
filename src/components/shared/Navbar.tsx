@@ -2,6 +2,7 @@
 import { Home, MonitorPlay, Store, Users, Gamepad2, Grid3X3, MessageCircle, Bell } from 'lucide-react';
 import SearchDropdown from './SearchDropdown';
 import ProfileDropdown from './ProfileDropdown';
+import NotificationDropdown from './NotificationDropdown';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
@@ -66,9 +67,7 @@ const Navbar = () => {
                         2
                     </div>
                 </div>
-                <div className="h-10 w-10 bg-[#3A3B3C] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#4E4F50] transition-colors">
-                    <Bell className="text-[#E4E6EB] h-[22px] w-[22px]" strokeWidth={0} fill="currentColor" />
-                </div>
+                <NotificationDropdown />
 
                 {/* Profile Dropdown */}
                 <ProfileDropdown />
