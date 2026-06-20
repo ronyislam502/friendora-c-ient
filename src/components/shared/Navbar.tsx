@@ -8,6 +8,7 @@ import Link from 'next/link';
 const Navbar = () => {
     const pathname = usePathname();
     const isHome = pathname === '/';
+    const isReels = pathname === '/reels';
 
     return (
         <nav className="fixed top-0 z-50 w-full h-14 bg-[#242526] border-b border-[#3E4042] flex items-center justify-between px-4">
@@ -27,12 +28,15 @@ const Navbar = () => {
                         {isHome && <div className="absolute bottom-0 w-full h-[3px] bg-[#0866FF]"></div>}
                     </Link>
 
-                    {/* Inactive Tabs */}
-                    <div className="flex-1 flex items-center justify-center cursor-pointer group px-1">
-                        <div className="w-full h-12 flex items-center justify-center rounded-lg hover:bg-[#3A3B3C] transition-colors mt-1">
-                            <MonitorPlay className="h-[26px] w-[26px] text-[#B0B3B8]" strokeWidth={2} />
+                    {/* Reels Tab */}
+                    <Link href="/reels" className="flex-1 flex items-center justify-center relative cursor-pointer group px-1">
+                        <div className={`w-full h-12 flex items-center justify-center rounded-lg mt-1 transition-colors ${!isReels && 'hover:bg-[#3A3B3C]'}`}>
+                            <MonitorPlay className={isReels ? "h-[26px] w-[26px] text-[#0866FF]" : "h-[26px] w-[26px] text-[#B0B3B8]"} fill={isReels ? "currentColor" : "none"} strokeWidth={isReels ? 0 : 2} />
                         </div>
-                    </div>
+                        {isReels && <div className="absolute bottom-0 w-full h-[3px] bg-[#0866FF]"></div>}
+                    </Link>
+
+                    {/* Inactive Tabs */}
                     <div className="flex-1 flex items-center justify-center cursor-pointer group px-1">
                         <div className="w-full h-12 flex items-center justify-center rounded-lg hover:bg-[#3A3B3C] transition-colors mt-1">
                             <Store className="h-[26px] w-[26px] text-[#B0B3B8]" strokeWidth={2} />
