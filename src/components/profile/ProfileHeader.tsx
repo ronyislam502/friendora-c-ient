@@ -1,6 +1,12 @@
-import { Camera, MapPin, GraduationCap, Pen, Megaphone, ChevronDown, MonitorPlay, LayoutDashboard } from 'lucide-react';
+"use client";
+
+import { useState } from 'react';
+import { Camera, MapPin, GraduationCap, Pen, Megaphone, ChevronDown, ChevronUp, MonitorPlay, LayoutDashboard } from 'lucide-react';
+import PeopleYouMayKnow from './PeopleYouMayKnow';
 
 const ProfileHeader = () => {
+    const [showSuggestions, setShowSuggestions] = useState(false);
+
     return (
         <div className="bg-[#242526] w-full border-b border-[#3E4042]">
             {/* Cover Photo Area */}
@@ -82,12 +88,22 @@ const ProfileHeader = () => {
                                 <Megaphone className="w-4 h-4" />
                                 Advertise
                             </button>
-                            <button className="flex items-center justify-center bg-[#3A3B3C] hover:bg-[#4E4F50] text-[#E4E6EB] w-9 h-[36px] rounded-md transition-colors">
-                                <ChevronDown className="w-5 h-5" />
+                            <button 
+                                onClick={() => setShowSuggestions(!showSuggestions)}
+                                className={`flex items-center justify-center w-9 h-[36px] rounded-md transition-colors ${showSuggestions ? 'bg-[#263951] text-[#4599FF] hover:bg-[#344D6D]' : 'bg-[#3A3B3C] hover:bg-[#4E4F50] text-[#E4E6EB]'}`}
+                            >
+                                {showSuggestions ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                             </button>
                         </div>
                     </div>
                 </div>
+
+                {/* People You May Know Section */}
+                {showSuggestions && (
+                    <div className="w-full border-t border-[#3E4042]">
+                        <PeopleYouMayKnow />
+                    </div>
+                )}
             </div>
         </div>
     );
