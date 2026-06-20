@@ -1,6 +1,6 @@
 "use client";
-import { 
-    Users, LayoutDashboard, MonitorPlay, History, 
+import {
+    Users, LayoutDashboard, MonitorPlay, History,
     Bookmark, ChevronDown, ChevronUp, Megaphone, BarChart2, Gift, Calendar, Clock, Gamepad2, Store, MessageCircle, MessageSquare
 } from 'lucide-react';
 import Image from 'next/image';
@@ -16,12 +16,12 @@ const LeftSidebar = () => {
                 <ul className="menu w-full p-0 m-0 text-[#E4E6EB] font-medium text-[15px]">
                     {/* Profile Link */}
                     <li>
-                        <Link href="/profile" className="hover:bg-[#3A3B3C] active:!bg-[#3A3B3C] rounded-lg p-2 flex items-center gap-3">
+                        <Link href="/member/profile" className="hover:bg-[#3A3B3C] active:!bg-[#3A3B3C] rounded-lg p-2 flex items-center gap-3">
                             <img src="https://i.pravatar.cc/150?img=11" className="w-9 h-9 rounded-full object-cover" alt="Profile" />
                             <span className="flex-1">Rafsan Al Nahiyan Rony</span>
                         </Link>
                     </li>
-                    
+
                     {/* Meta AI */}
                     <li>
                         <a className="hover:bg-[#3A3B3C] active:!bg-[#3A3B3C] rounded-lg p-2 flex items-center gap-3">
@@ -158,7 +158,7 @@ const LeftSidebar = () => {
 
                     {/* Toggle Button */}
                     <li>
-                        <a 
+                        <a
                             onClick={() => setIsExpanded(!isExpanded)}
                             className="hover:bg-[#3A3B3C] active:!bg-[#3A3B3C] rounded-lg p-2 flex items-center gap-3 cursor-pointer"
                         >
