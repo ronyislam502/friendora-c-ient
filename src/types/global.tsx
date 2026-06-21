@@ -5,10 +5,12 @@ export type IInput = {
   size?: "sm" | "md" | "lg";
   required?: boolean;
   type?: string;
-  label: string;
+  label?: string;
   name: string;
   disabled?: boolean;
   placeholder?: string;
+  className?: string;
+  containerClassName?: string;
 };
 
 export type TError = {

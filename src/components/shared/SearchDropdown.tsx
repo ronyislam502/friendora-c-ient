@@ -30,7 +30,7 @@ const SearchDropdown = () => {
             {/* Default State - Always rendered to maintain layout space but hidden when open */}
             <>
                 <div className={`cursor-pointer ${isSearchOpen ? 'opacity-0 pointer-events-none' : ''}`}>
-                    <Image src="https://i.postimg.cc/bwZwvFBL/Chat-GPT-Image-Jun-19-2026-10-37-51-PM.png" alt="Website Logo" width={80} height={80} className="h-20 w-20 object-cover rounded-full" />
+                    <Image src="https://i.postimg.cc/kgKVLD8g/friendora.png" alt="Website Logo" width={60} height={60} className="object-cover" />
                 </div>
                 <div
                     className={`ml-2 hidden md:flex items-center bg-[#3A3B3C] rounded-full h-10 px-3 w-[240px] cursor-text transition-opacity ${isSearchOpen ? 'opacity-0 pointer-events-none' : ''}`}

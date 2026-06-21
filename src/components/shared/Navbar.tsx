@@ -2,7 +2,8 @@
 import { Home, MonitorPlay, Store, Users, Gamepad2, Grid3X3, MessageCircle, Bell } from 'lucide-react';
 import SearchDropdown from './SearchDropdown';
 import ProfileDropdown from './ProfileDropdown';
-import NotificationDropdown from './NotificationDropdown';
+// import NotificationDropdown from './NotificationDropdown';
+import MessengerDropdown from './MessengerDropdown';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
@@ -61,18 +62,12 @@ const Navbar = () => {
                 <div className="h-10 w-10 bg-[#3A3B3C] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#4E4F50] transition-colors">
                     <Grid3X3 className="text-[#E4E6EB] h-5 w-5" strokeWidth={0} fill="currentColor" />
                 </div>
-                <div className="h-10 w-10 bg-[#3A3B3C] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#4E4F50] transition-colors relative">
-                    <MessageCircle className="text-[#E4E6EB] h-[22px] w-[22px]" strokeWidth={0} fill="currentColor" />
-                    <div className="absolute -top-[2px] -right-[2px] bg-[#E41E3F] text-white text-[12px] font-bold rounded-full h-[19px] min-w-[19px] flex items-center justify-center px-[4px] border-2 border-[#242526]">
-                        2
-                    </div>
-                </div>
-                <NotificationDropdown />
+                <MessengerDropdown />
+                {/* <NotificationDropdown /> */}
 
                 {/* Profile Dropdown */}
                 <ProfileDropdown />
             </div>
-
         </nav>
     );
 };
